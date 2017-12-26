@@ -20,6 +20,7 @@ import Crypt.NaCl.Types (
   , SignedMessage
   , SignPublicKey
   , SignSecretKey
+  , SignSeed
   )
 
 -- | Generate a random key pair for signing messages
@@ -27,6 +28,9 @@ foreign import generateSignKeyPair :: Effect SignKeyPair
 
 -- | Get the signing keypair for a given `SignSecretKey`
 foreign import getSignKeyPair :: SignSecretKey -> SignKeyPair
+
+-- | Get the signing keypair for a given `SignSeed`
+foreign import getSignKeyPairFromSeed :: SignSeed -> SignKeyPair
 
 -- | Get the `SignPublicKey` for a given `SignKeyPair`
 foreign import getSignPublicKey :: SignKeyPair -> SignPublicKey
