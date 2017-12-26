@@ -1,12 +1,11 @@
 module Crypt.NaCl.Types where
 
-import Prelude
-
 import Data.ArrayBuffer.Types (Uint8Array)
+import Effect
+import Prelude
 import Unsafe.Coerce (unsafeCoerce)
 
--- | A general equality comparison for `Uint8Array`s
-foreign import equalUint8Arrays :: Uint8Array -> Uint8Array -> Boolean
+foreign import data NACL_RANDOM :: Type
 
 -- | A NaCl SHA-512 Hash
 foreign import data HashSha512 :: Type
@@ -86,6 +85,9 @@ foreign import data SignSecretKey :: Type
 
 instance eqSignSecretKey :: Eq SignSecretKey where
   eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
+-- | A NaCl SignSeed (a 32 byte seed can be used to generate a 64 byte SignSecretKey)
+foreign import data SignSeed :: Type
 
 -- | A NaCl SignedMessage, which is represented as a Uint8Array in JS
 foreign import data SignedMessage :: Type
