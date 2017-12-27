@@ -1,13 +1,14 @@
 module Crypt.NaCl.Class where
 
 import Crypt.NaCl.Types
-
 import Data.ArrayBuffer.Types (Uint8Array, Uint8, ArrayView)
 import Data.Either (Either)
 import Data.TextDecoder (decodeUtf8)
 import Data.TextEncoder (encodeUtf8)
 import Effect.Exception (Error)
 import Unsafe.Coerce (unsafeCoerce)
+
+import Crypt.NaCl.Types
 
 
 -- | Denotes a class of NaCl types which are convertable to `Uint8Array`s.
@@ -80,6 +81,9 @@ instance signSecretKeyUint8ArrayAble :: Uint8ArrayAble SignSecretKey where
   toUint8Array = unsafeCoerce
 
 instance signedMessageUint8ArrayAble :: Uint8ArrayAble SignedMessage where
+  toUint8Array = unsafeCoerce
+
+instance signSeedUint8ArrayAble :: Uint8ArrayAble SignSeed where 
   toUint8Array = unsafeCoerce
 
 instance hashSha512Uint8ArrayReadable :: Uint8ArrayReadable HashSha512 where
