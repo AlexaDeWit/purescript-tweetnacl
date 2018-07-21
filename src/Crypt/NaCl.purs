@@ -22,11 +22,13 @@ import Crypt.NaCl.Box
 
 import Crypt.NaCl.Class
   ( class Uint8ArrayAble
+  , class Uint8ArrayReadable
   , class Utf8Decodable
   , class Utf8Encodable
   , fromString
   , toString
   , toUint8Array
+  , fromUint8Array
   )
 
 import Crypt.NaCl.Hash
