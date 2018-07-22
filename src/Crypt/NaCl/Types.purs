@@ -1,10 +1,19 @@
 module Crypt.NaCl.Types where
 
+import Prelude
+import Data.ArrayBuffer.Types (Uint8Array)
+import Unsafe.Coerce (unsafeCoerce)
+
+-- | A general equality comparison for `Uint8Array`s
+foreign import equalUint8Arrays :: Uint8Array -> Uint8Array -> Boolean
+
 -- | A NaCl SHA-512 Hash
 foreign import data HashSha512 :: Type
 
 -- | A NaCl Nonce
 foreign import data Nonce :: Type
+instance eqNonce :: Eq Nonce where
+  eq n1 n2 = equalUint8Arrays (unsafeCoerce n1) (unsafeCoerce n2)
 
 -- | A NaCl Message, which is represented as a Uint8Array in JS
 foreign import data Message :: Type
