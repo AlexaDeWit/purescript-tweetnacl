@@ -11,6 +11,9 @@ foreign import equalUint8Arrays :: Uint8Array -> Uint8Array -> Boolean
 -- | A NaCl SHA-512 Hash
 foreign import data HashSha512 :: Type
 
+instance eqHashSha512 :: Eq HashSha512 where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | A NaCl Nonce
 foreign import data Nonce :: Type
 
@@ -66,9 +69,6 @@ instance eqSecretBoxKey :: Eq SecretBoxKey where
 
 -- | A NaCl Signature
 foreign import data Signature :: Type
-
-instance eqSignature :: Eq Signature where
-  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl `SignKeyPair` containing a `SignPublicKey` and a `SignSecretKey`
 newtype SignKeyPair = SignKeyPair { publicKey :: SignPublicKey, secretKey :: SignSecretKey }
