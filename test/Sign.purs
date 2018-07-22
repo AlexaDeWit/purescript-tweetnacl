@@ -2,6 +2,7 @@ module Test.Sign where
 
 import Prelude
 import Effect (Effect)
+import Effect.Console (log)
 import Data.Maybe
 import Test.Assert
 
@@ -10,6 +11,7 @@ import Crypt.NaCl
 
 runSignTests :: Effect Unit
 runSignTests = do
+  log "Running Signing tests"
   signKpA  <- generateSignKeyPair
   signKpB  <- generateSignKeyPair
   nonce    <- generateNonce

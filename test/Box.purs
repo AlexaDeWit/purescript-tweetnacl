@@ -2,6 +2,7 @@ module Test.Box where
 
 import Prelude
 import Effect (Effect)
+import Effect.Console (log)
 import Data.Maybe
 import Test.Assert
 
@@ -10,6 +11,7 @@ import Crypt.NaCl
 
 runBoxTests :: Effect Unit
 runBoxTests = do
+  log "Running Box Tests"
   -- | Setup with 3 keypairs, Alice, Bob, Evil
   aliceKp <- generateBoxKeyPair
   bobKp   <- generateBoxKeyPair
