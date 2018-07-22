@@ -12,15 +12,21 @@ foreign import data HashSha512 :: Type
 
 -- | A NaCl Nonce
 foreign import data Nonce :: Type
+
 instance eqNonce :: Eq Nonce where
-  eq n1 n2 = equalUint8Arrays (unsafeCoerce n1) (unsafeCoerce n2)
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl Message, which is represented as a Uint8Array in JS
 foreign import data Message :: Type
 
+instance eqMessage :: Eq Message where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl Box, which is an encrypted, authenticated message
 foreign import data Box :: Type
+
+instance eqBox :: Eq Box where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl `BoxKeyPair` containing a `BoxPublicKey` and a `BoxSecretKey`
 newtype BoxKeyPair = BoxKeyPair { publicKey :: BoxPublicKey, secretKey :: BoxSecretKey }
