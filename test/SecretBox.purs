@@ -2,6 +2,7 @@ module Test.SecretBox where
 
 import Prelude
 import Effect (Effect)
+import Effect.Console (log)
 import Data.Maybe
 import Test.Assert
 
@@ -10,6 +11,7 @@ import Crypt.NaCl
 
 runSecretBoxTests :: Effect Unit
 runSecretBoxTests = do
+  log "Running SecretBox tests"
   keyA     <- generateSecretBoxKey
   keyB     <- generateSecretBoxKey
   nonce    <- generateNonce
