@@ -1,6 +1,7 @@
 module Crypt.NaCl.Types where
 
 import Prelude
+
 import Data.ArrayBuffer.Types (Uint8Array)
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -31,34 +32,64 @@ instance eqBox :: Eq Box where
 -- | A NaCl `BoxKeyPair` containing a `BoxPublicKey` and a `BoxSecretKey`
 newtype BoxKeyPair = BoxKeyPair { publicKey :: BoxPublicKey, secretKey :: BoxSecretKey }
 
+derive instance eqBoxKeyPair :: Eq BoxKeyPair
+
 -- | A NaCl BoxPublicKey
 foreign import data BoxPublicKey :: Type
+
+instance eqBoxPublicKey :: Eq BoxPublicKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl BoxSecretKey
 foreign import data BoxSecretKey :: Type
 
+instance eqBoxSecretKey :: Eq BoxSecretKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | A NaCl BoxSharedKey
 foreign import data BoxSharedKey :: Type
 
+instance eqBoxSharedKey :: Eq BoxSharedKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | a NaCL SecretBox
 foreign import data SecretBox :: Type
 
+instance eqSecretBox :: Eq SecretBox where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | a NaCL SecretBoxKey
 foreign import data SecretBoxKey :: Type
 
+instance eqSecretBoxKey :: Eq SecretBoxKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl Signature
 foreign import data Signature :: Type
 
+instance eqSignature :: Eq Signature where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | A NaCl `SignKeyPair` containing a `SignPublicKey` and a `SignSecretKey`
 newtype SignKeyPair = SignKeyPair { publicKey :: SignPublicKey, secretKey :: SignSecretKey }
+
+derive instance eqSignKeyPair :: Eq SignKeyPair
 
 -- | A NaCl SignPublicKey
 foreign import data SignPublicKey :: Type
 
+instance eqSignPublicKey :: Eq SignPublicKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | A NaCl SignSecretKey
 foreign import data SignSecretKey :: Type
 
+instance eqSignSecretKey :: Eq SignSecretKey where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
 -- | A NaCl SignedMessage, which is represented as a Uint8Array in JS
 foreign import data SignedMessage :: Type
+
+instance eqSignedMessage :: Eq SignedMessage where
+  eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
+
