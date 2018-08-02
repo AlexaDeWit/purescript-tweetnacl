@@ -5,7 +5,8 @@ import Effect
 import Prelude
 import Unsafe.Coerce (unsafeCoerce)
 
-foreign import data NACL_RANDOM :: Type
+-- | A general equality comparison for `Uint8Array`s
+foreign import equalUint8Arrays :: Uint8Array -> Uint8Array -> Boolean
 
 -- | A NaCl SHA-512 Hash
 foreign import data HashSha512 :: Type

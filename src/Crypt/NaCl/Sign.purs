@@ -16,12 +16,12 @@ import Data.ArrayBuffer.DataView (buffer)
 import Data.ArrayBuffer.Typed (dataView)
 import Data.ArrayBuffer.Types (Uint8Array)
 import Data.Nullable (Nullable, toMaybe)
-import Data.Maybe (Maybe)
-import Data.Unsafe (unsafeCoerce)
+import Data.Maybe (Maybe(..))
+import Prelude
+import Unsafe.Coerce (unsafeCoerce)
 
 import Crypt.NaCl.Types (
     Message
-  , NACL_RANDOM
   , SignKeyPair
   , Signature
   , SignedMessage
