@@ -8,8 +8,6 @@ import Data.TextEncoder (encodeUtf8)
 import Effect.Exception (Error)
 import Unsafe.Coerce (unsafeCoerce)
 
-import Crypt.NaCl.Types
-
 
 -- | Denotes a class of NaCl types which are convertable to `Uint8Array`s.
 -- | Instances of this typeclass will `unsafeCoerce` their values to `Uint8Array`
@@ -83,7 +81,7 @@ instance signSecretKeyUint8ArrayAble :: Uint8ArrayAble SignSecretKey where
 instance signedMessageUint8ArrayAble :: Uint8ArrayAble SignedMessage where
   toUint8Array = unsafeCoerce
 
-instance signSeedUint8ArrayAble :: Uint8ArrayAble SignSeed where 
+instance signSeedUint8ArrayAble :: Uint8ArrayAble SignSeed where
   toUint8Array = unsafeCoerce
 
 instance hashSha512Uint8ArrayReadable :: Uint8ArrayReadable HashSha512 where
@@ -120,5 +118,8 @@ instance signSecretKeyUint8ArrayReadable :: Uint8ArrayReadable SignSecretKey whe
   fromUint8Array = unsafeCoerce
 
 instance signedMessageUint8ArrayReadable :: Uint8ArrayReadable SignedMessage where
+  fromUint8Array = unsafeCoerce
+
+instance signSeedUint8ArrayReadable :: Uint8ArrayReadable SignSeed where
   fromUint8Array = unsafeCoerce
 

@@ -1,8 +1,7 @@
 module Crypt.NaCl.Types where
 
 import Data.ArrayBuffer.Types (Uint8Array)
-import Effect
-import Prelude
+import Prelude (class Eq)
 import Unsafe.Coerce (unsafeCoerce)
 
 -- | A general equality comparison for `Uint8Array`s

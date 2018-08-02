@@ -27,7 +27,7 @@ import Crypt.NaCl.Types (
 
 
 -- | Generate a `BoxKeyPair` for NaCl Box operations
-foreign import generateBoxKeyPair :: forall e. Effect BoxKeyPair
+foreign import generateBoxKeyPair :: Effect BoxKeyPair
 
 -- | Get a `BoxKeyPair` from the given `BoxSecretKey`
 foreign import getBoxKeyPair :: BoxSecretKey -> BoxKeyPair
