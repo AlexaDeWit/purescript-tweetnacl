@@ -11,4 +11,4 @@ a javascript re-implementation of the original
 
 This module was originally released by William Wolf, [here](https://github.com/throughnothing/purescript-crypt-nacl)
 
-Owing to inactivity on the part of the original author, this forked release has been created to carry support to 0.12.
+Owing to inactivity on the part of the original author, this forked release has been created to carry support to 0.12, as well as beyond. This repository will be maintained as if it was the primary one, at least until such time as upstream pulls in the work done here and becomes active once again.
