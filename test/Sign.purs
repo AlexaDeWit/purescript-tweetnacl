@@ -11,7 +11,6 @@ import Crypt.NaCl
 
 -- Uint8Array filled with 0s
 foreign import testSeedData :: { seed :: SignSeed, secretKey :: SignSecretKey, publicKey :: SignPublicKey }
-foreign import eqUint8Array :: forall a. a -> a -> Boolean
 
 runSignTests :: Effect Unit
 runSignTests = do
@@ -48,7 +47,7 @@ runSignTests = do
   
   -- Test seed -> secret key
   let keyPairS = getSignKeyPairFromSeed testSeedData.seed
-  let skMatch = eqUint8Array (getSignSecretKey keyPairS) testSeedData.secretKey
-  let pkMatch = eqUint8Array (getSignPublicKey keyPairS) testSeedData.publicKey
+  let skMatch = getSignSecretKey keyPairS == testSeedData.secretKey
+  let pkMatch = getSignPublicKey keyPairS == testSeedData.publicKey
   assert $ skMatch && pkMatch
   
