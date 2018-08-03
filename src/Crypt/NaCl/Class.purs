@@ -1,7 +1,6 @@
 module Crypt.NaCl.Class where
 
 import Crypt.NaCl.Types
-
 import Data.ArrayBuffer.Types (Uint8Array, Uint8, ArrayView)
 import Data.Either (Either)
 import Data.TextDecoder (decodeUtf8)
@@ -82,6 +81,9 @@ instance signSecretKeyUint8ArrayAble :: Uint8ArrayAble SignSecretKey where
 instance signedMessageUint8ArrayAble :: Uint8ArrayAble SignedMessage where
   toUint8Array = unsafeCoerce
 
+instance signSeedUint8ArrayAble :: Uint8ArrayAble SignSeed where
+  toUint8Array = unsafeCoerce
+
 instance hashSha512Uint8ArrayReadable :: Uint8ArrayReadable HashSha512 where
   fromUint8Array = unsafeCoerce
 
@@ -116,5 +118,8 @@ instance signSecretKeyUint8ArrayReadable :: Uint8ArrayReadable SignSecretKey whe
   fromUint8Array = unsafeCoerce
 
 instance signedMessageUint8ArrayReadable :: Uint8ArrayReadable SignedMessage where
+  fromUint8Array = unsafeCoerce
+
+instance signSeedUint8ArrayReadable :: Uint8ArrayReadable SignSeed where
   fromUint8Array = unsafeCoerce
 

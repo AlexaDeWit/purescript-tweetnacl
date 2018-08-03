@@ -9,6 +9,9 @@ import Test.Assert
 import Test.Util
 import Crypt.NaCl
 
+-- | seed is a Uint8Array filled with 0s
+foreign import testSeedData :: { seed :: SignSeed, secretKey :: SignSecretKey, publicKey :: SignPublicKey }
+
 runSignTests :: Effect Unit
 runSignTests = do
   log "Running Signing tests"
@@ -41,3 +44,10 @@ runSignTests = do
   -- Try to verify with wrong key
   let verified = verifyDetached msg sigA
   assert verified
+  
+  -- Test seed -> secret key
+  let keyPairS = getSignKeyPairFromSeed testSeedData.seed
+  let skMatch = getSignSecretKey keyPairS == testSeedData.secretKey
+  let pkMatch = getSignPublicKey keyPairS == testSeedData.publicKey
+  assert $ skMatch && pkMatch
+  

@@ -49,6 +49,7 @@ import Crypt.NaCl.SecretBox
 import Crypt.NaCl.Sign
   ( generateSignKeyPair
   , getSignKeyPair
+  , getSignKeyPairFromSeed
   , getSignPublicKey
   , getSignSecretKey
   , sign
@@ -73,4 +74,5 @@ import Crypt.NaCl.Types
   , SignSecretKey
   , Signature
   , SignedMessage
+  , SignSeed
   )
