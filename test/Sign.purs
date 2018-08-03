@@ -9,7 +9,7 @@ import Test.Assert
 import Test.Util
 import Crypt.NaCl
 
--- Uint8Array filled with 0s
+-- | seed is a Uint8Array filled with 0s
 foreign import testSeedData :: { seed :: SignSeed, secretKey :: SignSecretKey, publicKey :: SignPublicKey }
 
 runSignTests :: Effect Unit
