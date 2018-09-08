@@ -6,6 +6,12 @@ This module wraps [tweetnacl](https://github.com/dchest/tweetnacl-js), which is
 a javascript re-implementation of the original
 [TweetNaCl](http://tweetnacl.cr.yp.to).
 
+# Important Note
+
+Because this library relies on a foreign js import (tweetnacl-js), your build chain will need to use something like webpack or browserify to bring in the required files if running the program in a browser.
+
+See: https://github.com/purescript/documentation/blob/master/guides/PureScript-Without-Node.md#bundling-javascript-for-the-browser
+
 
 # Attribution
 
