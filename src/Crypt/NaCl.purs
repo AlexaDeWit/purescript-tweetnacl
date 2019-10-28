@@ -6,7 +6,7 @@ module Crypt.NaCl
   , module Crypt.NaCl.SecretBox
   , module Crypt.NaCl.Sign
   , module Crypt.NaCl.Types
-) where
+  ) where
 
 import Crypt.NaCl.Box
   ( box
@@ -19,7 +19,6 @@ import Crypt.NaCl.Box
   , getBoxPublicKey
   , getBoxSecretKey
   )
-
 import Crypt.NaCl.Class
   ( class Uint8ArrayAble
   , class Uint8ArrayReadable
@@ -30,22 +29,18 @@ import Crypt.NaCl.Class
   , toUint8Array
   , fromUint8Array
   )
-
 import Crypt.NaCl.Hash
   ( hash
   )
-
 import Crypt.NaCl.Random
   ( generateNonce
   , setPRNG
   )
-
 import Crypt.NaCl.SecretBox
   ( generateSecretBoxKey
   , secretBox
   , secretBoxOpen
   )
-
 import Crypt.NaCl.Sign
   ( generateSignKeyPair
   , getSignKeyPair
@@ -57,7 +52,6 @@ import Crypt.NaCl.Sign
   , signOpen
   , verifyDetached
   )
-
 import Crypt.NaCl.Types
   ( Box
   , BoxKeyPair(..)

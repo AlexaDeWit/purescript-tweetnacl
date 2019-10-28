@@ -13,4 +13,3 @@ main = do
   runBoxTests
   runSecretBoxTests
   runInstanceTests
-

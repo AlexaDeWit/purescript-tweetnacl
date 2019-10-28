@@ -1,8 +1,8 @@
 // module Crypt.NaCl.Hash
-"use strict";
+'use strict'
 
-var nacl = require('tweetnacl');
+var nacl = require('tweetnacl')
 
 exports.hash = function(msg) {
-  return nacl.hash(msg);
+  return nacl.hash(msg)
 }

@@ -7,9 +7,8 @@ module Crypt.NaCl.SecretBox
 import Effect (Effect)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Maybe (Maybe)
-
-import Crypt.NaCl.Types (
-    Message
+import Crypt.NaCl.Types
+  ( Message
   , Nonce
   , SecretBoxKey
   , SecretBox

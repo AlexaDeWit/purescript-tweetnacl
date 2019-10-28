@@ -6,3 +6,5 @@
 /src/.webpack.js
 yarn-error.log
 .psc-ide-port
+/.spago/
+yarn.lock

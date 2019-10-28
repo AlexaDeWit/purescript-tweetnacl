@@ -14,9 +14,8 @@ import Prelude (($))
 import Effect (Effect)
 import Data.Nullable (Nullable, toMaybe)
 import Data.Maybe (Maybe)
-
-import Crypt.NaCl.Types (
-    Box
+import Crypt.NaCl.Types
+  ( Box
   , BoxKeyPair
   , BoxPublicKey
   , BoxSecretKey
@@ -24,7 +23,6 @@ import Crypt.NaCl.Types (
   , Nonce
   , BoxSharedKey
   )
-
 
 -- | Generate a `BoxKeyPair` for NaCl Box operations
 foreign import generateBoxKeyPair :: Effect BoxKeyPair

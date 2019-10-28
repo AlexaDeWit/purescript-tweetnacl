@@ -1,29 +1,29 @@
 // module Crypt.NaCl.Box
-"use strict";
+'use strict'
 
-var nacl = require('tweetnacl');
+var nacl = require('tweetnacl')
 
 exports.generateBoxKeyPair = function() {
-  return nacl.box.keyPair();
+  return nacl.box.keyPair()
 }
 
 exports.getBoxKeyPair = function(secretKey) {
-  return nacl.box.keyPair.fromSecretKey(secretKey);
+  return nacl.box.keyPair.fromSecretKey(secretKey)
 }
 
 exports.getBoxPublicKey = function(keyPair) {
-  return keyPair.publicKey;
+  return keyPair.publicKey
 }
 
 exports.getBoxSecretKey = function(keyPair) {
-  return keyPair.secretKey;
+  return keyPair.secretKey
 }
 
 exports.box = function(msg) {
   return function(nonce) {
     return function(publicKey) {
       return function(secretKey) {
-        return nacl.box(msg, nonce, publicKey, secretKey);
+        return nacl.box(msg, nonce, publicKey, secretKey)
       }
     }
   }
@@ -32,14 +32,14 @@ exports.box = function(msg) {
 exports.boxAfter = function(msg) {
   return function(nonce) {
     return function(sharedKey) {
-      return nacl.box.after(msg, nonce, sharedKey);
+      return nacl.box.after(msg, nonce, sharedKey)
     }
   }
 }
 
 exports.boxBefore = function(publicKey) {
   return function(secretKey) {
-    return nacl.box.before(publicKey, secretKey);
+    return nacl.box.before(publicKey, secretKey)
   }
 }
 
@@ -47,11 +47,11 @@ exports._boxOpen = function(box) {
   return function(nonce) {
     return function(publicKey) {
       return function(secretKey) {
-        var v = nacl.box.open(box, nonce, publicKey, secretKey);
+        var v = nacl.box.open(box, nonce, publicKey, secretKey)
         if (!v) {
-          return null;
+          return null
         } else {
-          return v;
+          return v
         }
       }
     }
@@ -61,11 +61,11 @@ exports._boxOpen = function(box) {
 exports._boxOpenAfter = function(box) {
   return function(nonce) {
     return function(sharedKey) {
-      var v = nacl.box.open.after(box, nonce, sharedKey);
+      var v = nacl.box.open.after(box, nonce, sharedKey)
       if (!v) {
-        return null;
+        return null
       } else {
-        return v;
+        return v
       }
     }
   }

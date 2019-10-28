@@ -32,7 +32,8 @@ instance eqBox :: Eq Box where
   eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
 
 -- | A NaCl `BoxKeyPair` containing a `BoxPublicKey` and a `BoxSecretKey`
-newtype BoxKeyPair = BoxKeyPair { publicKey :: BoxPublicKey, secretKey :: BoxSecretKey }
+newtype BoxKeyPair
+  = BoxKeyPair { publicKey :: BoxPublicKey, secretKey :: BoxSecretKey }
 
 derive instance eqBoxKeyPair :: Eq BoxKeyPair
 
@@ -70,7 +71,8 @@ instance eqSecretBoxKey :: Eq SecretBoxKey where
 foreign import data Signature :: Type
 
 -- | A NaCl `SignKeyPair` containing a `SignPublicKey` and a `SignSecretKey`
-newtype SignKeyPair = SignKeyPair { publicKey :: SignPublicKey, secretKey :: SignSecretKey }
+newtype SignKeyPair
+  = SignKeyPair { publicKey :: SignPublicKey, secretKey :: SignSecretKey }
 
 derive instance eqSignKeyPair :: Eq SignKeyPair
 
@@ -94,4 +96,3 @@ foreign import data SignedMessage :: Type
 
 instance eqSignedMessage :: Eq SignedMessage where
   eq a b = equalUint8Arrays (unsafeCoerce a) (unsafeCoerce b)
-

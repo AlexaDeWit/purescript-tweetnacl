@@ -1,43 +1,43 @@
 // module Crypt.NaCl.Sign
-"use strict";
+'use strict'
 
-var nacl = require('tweetnacl');
+var nacl = require('tweetnacl')
 
 exports.generateSignKeyPair = function() {
-  return nacl.sign.keyPair();
+  return nacl.sign.keyPair()
 }
 
 exports.getSignKeyPair = function(secretKey) {
-  return nacl.sign.keyPair.fromSecretKey(secretKey);
+  return nacl.sign.keyPair.fromSecretKey(secretKey)
 }
 
 exports.getSignKeyPairFromSeed = function(seed) {
-  return nacl.sign.keyPair.fromSeed(seed);
+  return nacl.sign.keyPair.fromSeed(seed)
 }
 
 exports.getSignPublicKey = function(signKeyPair) {
-  return signKeyPair.publicKey;
+  return signKeyPair.publicKey
 }
 
 exports.getSignSecretKey = function(signKeyPair) {
-  return signKeyPair.secretKey;
+  return signKeyPair.secretKey
 }
 
 exports._signOpen = function(signedMsg) {
   return function(signPublicKey) {
-    return nacl.sign.open(signedMsg, signPublicKey);
+    return nacl.sign.open(signedMsg, signPublicKey)
   }
 }
 
 exports.sign = function(msg) {
   return function(signSecretKey) {
-    return nacl.sign(msg, signSecretKey);
+    return nacl.sign(msg, signSecretKey)
   }
 }
 
 exports.signDetached = function(msg) {
   return function(signSecretKey) {
-    return nacl.sign.detached(msg, signSecretKey);
+    return nacl.sign.detached(msg, signSecretKey)
   }
 }
 
