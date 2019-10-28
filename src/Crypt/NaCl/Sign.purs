@@ -19,9 +19,8 @@ import Data.Nullable (Nullable, toMaybe)
 import Data.Maybe (Maybe(..))
 import Prelude
 import Unsafe.Coerce (unsafeCoerce)
-
-import Crypt.NaCl.Types (
-    Message
+import Crypt.NaCl.Types
+  ( Message
   , SignKeyPair
   , Signature
   , SignedMessage
@@ -65,5 +64,6 @@ signOpen m s = toMaybe (_signOpen m s)
 
 -- | Constructs a `SignSeed` provided the length is 32 bytes.
 mkSignSeed :: Uint8Array -> Maybe SignSeed
-mkSignSeed bs | 32 == (byteLength $ buffer $ dataView bs) = Just (unsafeCoerce bs)
-              | otherwise                                 = Nothing
+mkSignSeed bs
+  | 32 == (byteLength $ buffer $ dataView bs) = Just (unsafeCoerce bs)
+  | otherwise = Nothing

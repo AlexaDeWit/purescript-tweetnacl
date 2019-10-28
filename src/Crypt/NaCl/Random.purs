@@ -3,7 +3,6 @@ module Crypt.NaCl.Random where
 import Data.Unit (Unit)
 import Data.ArrayBuffer.Types (Uint8Array)
 import Effect (Effect)
-
 import Crypt.NaCl.Types (Nonce)
 
 -- | Assigns a new PRNG for all random data generation
