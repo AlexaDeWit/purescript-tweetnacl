@@ -5,7 +5,8 @@ You can edit this file as you like.
 { name =
     "tweetnacl"
 , dependencies =
-    [ "arraybuffer-types"
+    [ "arraybuffer"
+    , "arraybuffer-types"
     , "assert"
     , "console"
     , "effect"
