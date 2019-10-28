@@ -2,14 +2,8 @@
   "name": "purescript-tweetnacl",
   "homepage": "https://github.com/AlexaDeWit/purescript-tweetnacl",
   "description": "A wrapper of tweetnacl-js for Purescript",
-  "keywords": [
-    "purescript",
-    "nacl",
-    "crypto"
-  ],
-  "authors": [
-    "William Wolf"
-  ],
+  "keywords": ["purescript", "nacl", "crypto"],
+  "authors": ["William Wolf"],
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -34,7 +28,7 @@
     "purescript-nullable": "^4.0.0",
     "purescript-exceptions": "^4.0.0",
     "purescript-either": "^4.0.0",
-    "purescript-text-encoding": "^0.0.9"
+    "purescript-text-encoding": "^1.0.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0",

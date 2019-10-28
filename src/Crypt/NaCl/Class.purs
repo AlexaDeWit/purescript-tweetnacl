@@ -3,11 +3,10 @@ module Crypt.NaCl.Class where
 import Crypt.NaCl.Types
 import Data.ArrayBuffer.Types (Uint8Array, Uint8, ArrayView)
 import Data.Either (Either)
-import Data.TextDecoder (decodeUtf8)
-import Data.TextEncoder (encodeUtf8)
+import Data.TextDecoding (decodeUtf8)
+import Data.TextEncoding (encodeUtf8)
 import Effect.Exception (Error)
 import Unsafe.Coerce (unsafeCoerce)
-
 
 -- | Denotes a class of NaCl types which are convertable to `Uint8Array`s.
 -- | Instances of this typeclass will `unsafeCoerce` their values to `Uint8Array`
@@ -37,7 +36,6 @@ class Utf8Decodable a where
 -- | NaCl type we want because all underlying types are `Uint8Array`
 class Utf8Encodable a where
   fromString :: String -> a
-
 
 instance messageUtf8Decodable :: Utf8Decodable Message where
   toString m = decodeUtf8 (unsafeCoerce m :: (ArrayView Uint8))
@@ -122,4 +120,3 @@ instance signedMessageUint8ArrayReadable :: Uint8ArrayReadable SignedMessage whe
 
 instance signSeedUint8ArrayReadable :: Uint8ArrayReadable SignSeed where
   fromUint8Array = unsafeCoerce
-

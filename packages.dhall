@@ -123,6 +123,25 @@ let upstream =
 
 let overrides = {=}
 
-let additions = {=}
+let additions = {
+  text-encoding = {
+    dependencies =
+      [ "arraybuffer-types"
+      , "console"
+      , "effect"
+      , "either"
+      , "exceptions"
+      , "functions"
+      , "partial"
+      , "prelude"
+      , "psci-support"
+      , "strings"
+      , "strongcheck"
+      , "unicode"
+      ]
+    , repo = "https://github.com/AlexaDeWit/purescript-text-encoding.git"
+    , version = "v1.0.0"
+  }
+}
 
 in  upstream // overrides // additions

@@ -15,6 +15,7 @@ You can edit this file as you like.
     , "nullable"
     , "prelude"
     , "psci-support"
+    , "text-encoding"
     , "unsafe-coerce"
     ]
 , packages =
