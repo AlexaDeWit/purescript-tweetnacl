@@ -4,7 +4,7 @@ import Prelude
 import Effect (Effect)
 import Effect.Console (log)
 import Test.Assert
-import Crypt.NaCl
+import Crypt.NaCl (generateBoxKeyPair, generateSecretBoxKey)
 
 runInstanceTests :: Effect Unit
 runInstanceTests = do
